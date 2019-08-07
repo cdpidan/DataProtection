@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CSRedis", "CSRedis", "{6943CD9E-6144-4EEE-9150-9795E937D898}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2D5C3DBA-D926-4DCA-96B9-3108486F431C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.AspNetCore.DataProtection.CSRedis", "CSRedis\src\Microsoft.AspNetCore.DataProtection.CSRedis\Microsoft.AspNetCore.DataProtection.CSRedis.csproj", "{F96166F3-0681-4FAF-B93E-A2B52BDA352B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2D5C3DBA-D926-4DCA-96B9-3108486F431C} = {6943CD9E-6144-4EEE-9150-9795E937D898}
+		{F96166F3-0681-4FAF-B93E-A2B52BDA352B} = {2D5C3DBA-D926-4DCA-96B9-3108486F431C}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F96166F3-0681-4FAF-B93E-A2B52BDA352B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F96166F3-0681-4FAF-B93E-A2B52BDA352B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F96166F3-0681-4FAF-B93E-A2B52BDA352B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F96166F3-0681-4FAF-B93E-A2B52BDA352B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
