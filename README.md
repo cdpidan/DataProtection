@@ -5,7 +5,7 @@
 #### nuget
 
 ```
-dotnet add package Microsoft.AspNetCore.DataProtection.CSRedis
+dotnet add package AspNetCore.DataProtection.CSRedis
 ```
 
 #### 依赖注入
