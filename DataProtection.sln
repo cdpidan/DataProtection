@@ -1,10 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CSRedis", "CSRedis", "{6943CD9E-6144-4EEE-9150-9795E937D898}"
+ProjectSection(SolutionItems) = preProject
+	README.md = README.md
+EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2D5C3DBA-D926-4DCA-96B9-3108486F431C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.AspNetCore.DataProtection.CSRedis", "CSRedis\src\Microsoft.AspNetCore.DataProtection.CSRedis\Microsoft.AspNetCore.DataProtection.CSRedis.csproj", "{F96166F3-0681-4FAF-B93E-A2B52BDA352B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{563870E7-CDFB-4D7F-9F2B-EAA6EBB86D98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.AspNetCore.DataProtection.CSRedis.Test", "CSRedis\test\Microsoft.AspNetCore.DataProtection.CSRedis.Test\Microsoft.AspNetCore.DataProtection.CSRedis.Test.csproj", "{C21D697A-97C6-4C97-8A16-6A7FFCF81E93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,11 +21,17 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2D5C3DBA-D926-4DCA-96B9-3108486F431C} = {6943CD9E-6144-4EEE-9150-9795E937D898}
 		{F96166F3-0681-4FAF-B93E-A2B52BDA352B} = {2D5C3DBA-D926-4DCA-96B9-3108486F431C}
+		{563870E7-CDFB-4D7F-9F2B-EAA6EBB86D98} = {6943CD9E-6144-4EEE-9150-9795E937D898}
+		{C21D697A-97C6-4C97-8A16-6A7FFCF81E93} = {563870E7-CDFB-4D7F-9F2B-EAA6EBB86D98}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F96166F3-0681-4FAF-B93E-A2B52BDA352B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F96166F3-0681-4FAF-B93E-A2B52BDA352B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F96166F3-0681-4FAF-B93E-A2B52BDA352B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F96166F3-0681-4FAF-B93E-A2B52BDA352B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C21D697A-97C6-4C97-8A16-6A7FFCF81E93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C21D697A-97C6-4C97-8A16-6A7FFCF81E93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C21D697A-97C6-4C97-8A16-6A7FFCF81E93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C21D697A-97C6-4C97-8A16-6A7FFCF81E93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -13,7 +13,7 @@ dotnet add package AspNetCore.DataProtection.CSRedis
 ```
 var redisConnection = "127.0.0.1:6379,password=123";
 services.AddDataProtection()
-    .PersistKeysToCSRedis(new CSRedis.CSRedisClient(redisConnection), IdentityServerCSRedis-DataProtection-Keys");
+    .PersistKeysToCSRedis(new CSRedis.CSRedisClient(redisConnection), "IdentityServerCSRedis-DataProtection-Keys");
 ```
 
 #### 引用

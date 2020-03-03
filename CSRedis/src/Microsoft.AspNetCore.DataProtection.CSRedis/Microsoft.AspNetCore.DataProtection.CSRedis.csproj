@@ -3,23 +3,22 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageVersion>0.1.0</PackageVersion>
+    <PackageVersion>0.2.0</PackageVersion>
     <Authors>cdpidan</Authors>
     <PackageProjectUrl>https://github.com/cdpidan/DataProtection</PackageProjectUrl>
     <RepositoryUrl>https://github.com/cdpidan/DataProtection</RepositoryUrl>
     <AssemblyName>AspNetCore.DataProtection.CSRedis</AssemblyName>
+    <RootNamespace />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="bin\Release\netstandard2.0\AspNetCore.DataProtection.CSRedis.pdb">
-      <PackagePath>lib/netstandard2.0/</PackagePath>
-      <Pack>true</Pack>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="CSRedisCore" Version="3.1.2" />
-    <PackageReference Include="Microsoft.AspNetCore.DataProtection" Version="2.2.0" />
+    <PackageReference Include="CSRedisCore" Version="3.4.5" />
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection" Version="3.1.2" />
   </ItemGroup>
 
 </Project>
