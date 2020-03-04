@@ -2,17 +2,17 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using CSRedis;
-using Microsoft.AspNetCore.DataProtection.CSRedis;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
+using Microsoft.AspNetCore.DataProtection.NewLifeRedis;
 using Microsoft.Extensions.DependencyInjection;
+using NewLife.Caching;
 
 namespace Microsoft.AspNetCore.DataProtection
 {
     /// <summary>
     /// Contains Redis-specific extension methods for modifying a <see cref="IDataProtectionBuilder"/>.
     /// </summary>
-    public static class CSRedisDataProtectionBuilderExtensions
+    public static class NewLifeRedisDataProtectionBuilderExtensions
     {
         private const string DataProtectionKeysName = "DataProtection-Keys";
 
@@ -23,8 +23,8 @@ namespace Microsoft.AspNetCore.DataProtection
         /// <param name="redisFactory">The delegate used to create <see cref="CSRedisClient"/> instances.</param>
         /// <param name="key">The used to store key list.</param>
         /// <returns>A reference to the <see cref="IDataProtectionBuilder" /> after this operation has completed.</returns>
-        public static IDataProtectionBuilder PersistKeysToCSRedis(this IDataProtectionBuilder builder,
-            Func<CSRedisClient> redisFactory, string key)
+        public static IDataProtectionBuilder PersistKeysToNewLifeRedis(this IDataProtectionBuilder builder,
+            Func<ProtectionFullRedis> redisFactory, string key)
         {
             if (builder == null)
             {
@@ -36,7 +36,7 @@ namespace Microsoft.AspNetCore.DataProtection
                 throw new ArgumentNullException(nameof(redisFactory));
             }
 
-            return PersistKeysToCSRedisInternal(builder, redisFactory, key);
+            return PersistKeysToNewLifeRedisInternal(builder, redisFactory, key);
         }
 
         /// <summary>
@@ -45,10 +45,10 @@ namespace Microsoft.AspNetCore.DataProtection
         /// <param name="builder">The builder instance to modify.</param>
         /// <param name="redisClient">The <see cref="CSRedisClient"/> for database access.</param>
         /// <returns>A reference to the <see cref="IDataProtectionBuilder" /> after this operation has completed.</returns>
-        public static IDataProtectionBuilder PersistKeysToCSRedis(this IDataProtectionBuilder builder,
-            CSRedisClient redisClient)
+        public static IDataProtectionBuilder PersistKeysToNewLifeRedis(this IDataProtectionBuilder builder,
+            ProtectionFullRedis redisClient)
         {
-            return PersistKeysToCSRedis(builder, redisClient, DataProtectionKeysName);
+            return PersistKeysToNewLifeRedis(builder, redisClient, DataProtectionKeysName);
         }
 
         /// <summary>
@@ -58,8 +58,8 @@ namespace Microsoft.AspNetCore.DataProtection
         /// <param name="redisClient">The <see cref="CSRedisClient"/> for database access.</param>
         /// <param name="key">The used to store key list.</param>
         /// <returns>A reference to the <see cref="IDataProtectionBuilder" /> after this operation has completed.</returns>
-        public static IDataProtectionBuilder PersistKeysToCSRedis(this IDataProtectionBuilder builder,
-            CSRedisClient redisClient, string key)
+        public static IDataProtectionBuilder PersistKeysToNewLifeRedis(this IDataProtectionBuilder builder,
+            ProtectionFullRedis redisClient, string key)
         {
             if (builder == null)
             {
@@ -71,12 +71,11 @@ namespace Microsoft.AspNetCore.DataProtection
                 throw new ArgumentNullException(nameof(redisClient));
             }
 
-            RedisHelper.Initialization(redisClient);
-            return PersistKeysToCSRedisInternal(builder, () => RedisHelper.Instance, key);
+            return PersistKeysToNewLifeRedisInternal(builder, () => redisClient, key);
         }
 
-        private static IDataProtectionBuilder PersistKeysToCSRedisInternal(IDataProtectionBuilder builder,
-            Func<CSRedisClient> redisClient, string key)
+        private static IDataProtectionBuilder PersistKeysToNewLifeRedisInternal(IDataProtectionBuilder builder,
+            Func<ProtectionFullRedis> redisClient, string key)
         {
             builder.Services.Configure<KeyManagementOptions>(options =>
             {
